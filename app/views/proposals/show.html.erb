@@ -1,0 +1,6 @@
+
+  <%= render 'proposal', proposal: @proposal %>
+  <%= link_to "Cancel", proposals_path %>
+  |
+  <%= link_to "Edit Proposal", edit_proposal_path(@proposal) %>
+  <%= link_to 'Destroy', @proposal, :method => :delete %>
