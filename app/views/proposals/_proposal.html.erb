@@ -5,4 +5,6 @@
 <%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
 
 <h4>Short Description:
-  <%= proposal.short_desc %></h4>
+  <%= link_to proposal.short_desc %></h4>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> by <%=  proposal.user.email %></small>
+  <br>

@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   def index
     @proposals = Proposal.all
   end
@@ -49,6 +50,11 @@ end
 
 def set_proposal
   @proposal = Proposal.find(params[:id])
+end
+
+def authorized_user
+  @proposal = current_uer.proposals.find_by(id: params[:id])
+  redirect_to proposals_path
 end
 
 end
