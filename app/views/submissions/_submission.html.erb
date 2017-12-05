@@ -1,0 +1,6 @@
+<%= link_to image_tag(submission.avatar.url(:medium)), submission_path(@submission) %>
+<%= submission.name %>
+<%= submission.description %>
+<%= link_to 'Delete Submission', [submission.proposal, submission,
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %>
