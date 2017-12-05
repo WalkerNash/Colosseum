@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-  before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+
 
 
 
@@ -12,7 +12,7 @@ class SubmissionsController < ApplicationController
 
 
   def show
-    @proposal = Proposal.find(params[:id])
+
     @submission = Submission.find(params[:id])
   end
   def new
@@ -49,7 +49,7 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission = Submission.find(params[:id])
     @submission.destroy
-    redirect_to proposal_submissions_path
+    redirect_to '/'
 
   end
 
