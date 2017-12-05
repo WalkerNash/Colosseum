@@ -7,6 +7,10 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'acts_as_votable'
+
+gem 'devise'
+
 gem 'rb-readline'
 
 gem 'paperclip'

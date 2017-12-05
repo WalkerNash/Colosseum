@@ -1,0 +1,15 @@
+<h1>EDIT Submission</h1>
+
+<%= form_for @submission, url: proposal_submission_path do |f| %>
+
+<li><%= f.file_field :avatar %></li>
+<li><%= f.text_field :title %></li>
+<li> <%= f.text_field :description,
+placeholder:  'Add the description...' %>
+<li> <%=f.submit 'Submission'%></li>
+
+
+<% end %>
+
+
+<%= link_to 'Back', proposals_path %>

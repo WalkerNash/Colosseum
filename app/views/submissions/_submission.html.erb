@@ -1,0 +1,13 @@
+<%-# THIS IS THE INDIVIDUAL SUBMISSION# SHOW PARTIAL  -%>
+
+
+
+  <h2><%= @submission.title %></h2>
+  <h4>Description: <%= submission.description %></h4>
+  <small>Submitted <%= time_ago_in_words(submission.created_at) %> ago by <%=  submission.user.email %></small>
+  <p>
+  <%= link_to 'Delete Submission', [submission.proposal, submission],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+  <br>

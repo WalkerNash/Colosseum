@@ -1,0 +1,6 @@
+<h1>SUBMISSIONS</h1>
+<% @submissions.each do |submission| %>
+<li><a href='/proposals/<%= @proposal.id %>/submissions/<%=submission.id %>' ><%=submission.title %></a></li>
+<%= submission.description %>
+<%= submission.avatar %>
+<% end %>
