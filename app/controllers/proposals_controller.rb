@@ -5,6 +5,7 @@ class ProposalsController < ApplicationController
 
   def index
     @proposals = Proposal.all
+
   end
 
 # proposal is now built from the user instead of the proposal
@@ -28,6 +29,8 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+
+
   end
 
   def update

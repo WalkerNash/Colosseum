@@ -1,18 +1,13 @@
-<%= form_for([@proposal, proposal.submissions.new], remote: true) do |form| %>
 
-    <%= form.file_field :avatar %>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<%= form_with(model: [ @proposal, @proposal.submissions.build ]) do |form| %>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <p><%= form.file_field :avatar %></p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <p><%= form.label :title %> <br> <%= form.text_area :title %></p>
+
+  <p><%= form.label :description %> <br> <%= form.text_area :description %></p>
+
+  <p><%= form.submit %></p>
+
   <% end %>

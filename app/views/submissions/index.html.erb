@@ -1,4 +1,6 @@
-<h1>PROPOSALS</h1>
-<% @proposals.each do |proposal| %>
-  <%= render 'proposal', proposal: proposal %>
+<h1>SUBMISSIONS</h1>
+<% @submissions.each do |submission| %>
+<li><a href='/proposals/<%= @proposal.id %>/submissions/<%=submission.id %>' ><%=submission.title %></a></li>
+<%= submission.description %>
+<%= submission.avatar %>
 <% end %>

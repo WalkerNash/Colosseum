@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205060208) do
+ActiveRecord::Schema.define(version: 20171205065051) do
 
   create_table "proposals", force: :cascade do |t|
     t.string "name"
@@ -26,18 +26,18 @@ ActiveRecord::Schema.define(version: 20171205060208) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.integer "post_id"
+    t.integer "proposal_id"
+    t.string "title"
+    t.text "description"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "proposal_id"
-    t.index ["post_id"], name: "index_submissions_on_post_id"
     t.index ["proposal_id"], name: "index_submissions_on_proposal_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
