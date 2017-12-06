@@ -2,6 +2,8 @@
 <%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
 
 <%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
+<%= link_to image_tag(proposal.user.avatar.url(:medium)), proposal_path(proposal) %>
+
 
 <h2><%= proposal.name %></h2>
 
@@ -15,7 +17,7 @@
 </div>
 
 <div class="prop-fdesc-box">
-  <h4><%= proposal.fulldesc %></h4>
+  <p><%= proposal.fulldesc %></p>
 </div>
 
   <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
@@ -23,7 +25,7 @@
 </div>
 
 <p>Project Resources:</p>
-<%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
+<%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
 
 <h3>CURRENT SUBMISSIONS</h3>
   <% if proposal.submissions.any? %>
