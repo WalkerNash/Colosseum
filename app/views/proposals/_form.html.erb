@@ -1,34 +1,44 @@
 <%= form_with model: @proposal, local: true do |form| %>
 
-  <% if @proposal.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@proposal.errors.count, "error") %> prohibited
-        this proposal from being saved:
-      </h2>
-      <ul>
-        <% @proposal.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @proposal.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@proposal.errors.count, "error") %>
+      prohibited this proposal from being saved:
+    </h2>
+    <ul>
+      <% @proposal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
+<p>Got some assets to give people a head-start with? Upload them here!</p>
+<div class="form-field">
+  <%= form.file_field :avatar %>
+</div>
 
-    <%= form.file_field :avatar %>
+<p>Project Name</p>
+<div class="form-field">
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
+</div>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<p>Give your project a short description to bring in traffic!</p>
+<div class="form-field">
+  <%= form.label :short_desc %><br>
+  <%= form.text_area :short_desc %>
+</div>
 
-  <p>
-    <%= form.label :short_desc %><br>
-    <%= form.text_area :short_desc %>
-  </p>
+<p>You've got their attention, now give 'em the details with a full run-down of exactly what you want. Be specific! </p>
+<div class="form-field">
+  <%= form.label :longdesc %><br>
+  <%= form.text_area :longdesc %>
+</div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+<div class="form-field">
+  <%= form.submit %>
+</div>
 
 <% end %>
