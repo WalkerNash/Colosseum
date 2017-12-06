@@ -4,10 +4,10 @@
 
 <h2><%= proposal.name %></h2>
       <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
-<%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
+<%= link_to image_tag(proposal.user.avatar.url(:thumb)), proposal_path(proposal) %>
 
-<h4>Short Description:
-  <%= proposal.short_desc %></h4>
+
+  <p><%= proposal.short_desc %></p>
   <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.email %></small>
   <br>
 </div>
