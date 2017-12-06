@@ -1,16 +1,30 @@
 
 <%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
 
+<%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
 
 <h2><%= proposal.name %></h2>
-      <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
-<%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
 
-<h4>Short Description:
-  <%= proposal.short_desc %></h4>
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.email %></small>
+<div class="prop-attr-box">
+  <div class="cate"><%= proposal.category %></div>
+  <div class="loc"><%= proposal.location %></div>
+</div>
+
+<div class="time-left-box">
+  <%= proposal.timelimit %>
+</div>
+
+<div class="prop-fdesc-box">
+  <h4><%= proposal.fulldesc %></h4>
+</div>
+
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
   <br>
 </div>
+
+<p>Project Resources:</p>
+<%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
+
 <h3>CURRENT SUBMISSIONS</h3>
   <% if proposal.submissions.any? %>
       <% proposal.submissions.each do |submission| %>
@@ -27,15 +41,14 @@
         <% end %>
       <% end %>
 
-<h3>Add A SUBMISSION!</h3>
-
-        <%= form_for [proposal, proposal.submissions.new] do |f| %>
-
-        <ul><%= f.file_field :avatar %>
-          <%= f.text_field :title, placeholder: 'Submission Title' %>
-         <%= f.text_field :description,
-        placeholder:  'Add the description...' %>
-         <%=f.submit 'Submission'%></ul>
-
-
-        <% end %>
+<div class="submission-add-box">
+  <h3>Add A Submission?</h3>
+  <%= form_for [proposal, proposal.submissions.new] do |f| %>
+  <ul>
+    <%= f.file_field :avatar %>
+    <%= f.text_field :title, placeholder: 'Submission Title' %>
+    <%= f.text_field :description, placeholder:  'Add the description...' %>
+    <%=f.submit 'Submission'%>
+  </ul>
+  <% end %>
+</div>
