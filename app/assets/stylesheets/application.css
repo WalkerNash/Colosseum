@@ -1,13 +1,28 @@
 .container{
   width: 100%;
-  height: auto;
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 25px 1fr 1fr;
+  grid-template-rows: 55px 1fr 1fr;
+  background-color: hsl(243,25%,81%);
 }
 
 .navbar{
   grid-column-start: 1;
   grid-column-end: 4;
   display: inline;
+  line-height: 55px;
+  text-align: center;
+  background-color: hsl(34,92%,50%);
+}
+
+.navbar > span{
+  font-family: serif;
+  font-size: 25px;
+  padding-right: 40px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: gray;
 }

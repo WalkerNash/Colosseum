@@ -1,11 +1,11 @@
 <nav class="navbar">
-          <%= link_to "Home", proposals_path %>
-          <% if user_signed_in? %>
-            <%= link_to "New Proposal", new_proposal_path %>
-            <%= link_to "Account", edit_user_registration_path %>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "Login", new_user_session_path %>
-            <%= link_to "Register", new_user_registration_path %>
-          <% end %>
-  </nav>
+  <span><%= link_to "Home", proposals_path %></span>
+  <% if user_signed_in? %>
+    <span><%= link_to "New Proposal", new_proposal_path %></span>
+    <span><%= link_to "Account", edit_user_registration_path %></span>
+    <span><%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <span><%= link_to "Login", new_user_session_path %></span>
+    <span><%= link_to "Register", new_user_registration_path %></span>
+  <% end %>
+</nav>
