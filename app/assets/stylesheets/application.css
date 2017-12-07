@@ -1,6 +1,6 @@
 .container{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 55px 1fr 1fr;
@@ -45,4 +45,8 @@ a:link, a:visited{
 .grid-item-7{
   grid-column: 2 / 3;
   grid-row: 3 / 4;
+}
+
+.center{
+  text-align: center;
 }
