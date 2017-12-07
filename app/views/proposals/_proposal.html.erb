@@ -3,7 +3,8 @@
 
 
 <%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
-<%= link_to proposal.user.user_name, profile_path(proposal.user.user_name) %>
+<%= link_to image_tag(proposal.user.avatar.url(:thumb)), profile_path(proposal.user.user_name) %>
+
 
 <h2><%= proposal.name %></h2>
 
@@ -26,7 +27,7 @@
 </div>
 
 <p>Project Resources:</p>
-<%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
+  <%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
 
 <h3>CURRENT SUBMISSIONS</h3>
   <% if proposal.submissions.any? %>
