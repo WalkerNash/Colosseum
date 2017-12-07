@@ -15,14 +15,36 @@
   text-align: center;
   background-color: hsl(34,92%,50%);
 }
-
+.spacer{
+  width: 100%;
+  height: 200px;
+  display:block;
+}
 .navbar > span{
   font-family: serif;
   font-size: 25px;
   padding-right: 40px;
 }
+.fullWidth{
+  width: 100%;
+  display: block;
+}
+.box{
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  width: 100%;
+  border-radius: 20px;
+
+}
 
 a:link, a:visited{
     text-decoration: none;
     color: gray;
+}
+
+.normal{
+  color: gray;
+  text-align: center;
+  width: 100%;
+  display: block;
 }
