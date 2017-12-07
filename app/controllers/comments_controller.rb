@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 before_action :set_submission
+
   def index
     @comments = Comment.all
   end
@@ -8,7 +9,7 @@ before_action :set_submission
   end
 
     def create
-        @comment = @submission.comments.new(comment_params)
+        @comment = @submission.comments.create(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
           redirect_to proposal_submissions_url
@@ -32,4 +33,5 @@ before_action :set_submission
     def set_submission
       @submission = Submission.find(params[:submission_id])
     end
+
 end

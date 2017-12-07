@@ -4,5 +4,5 @@
   <%= link_to "Return to Proposal Index", proposals_path %> -
   <% if @proposal.user.id == current_user.id %>
   <%= link_to "Edit Proposal", edit_proposal_path(@proposal) %> -
-  <%= link_to 'Destroy', @proposal, :method => :delete %> 
+  <%= link_to 'Destroy', @proposal, :method => :delete %>
 <% end %>

@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+
+  # makes devise look in the registrations controller for sign_up and account_update_params
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   root 'proposals#index'
-  get 'proposal/show'
+  
+  # ':user_name' is a dynamic parameter, meaning we can pass in diffferent user_names's
+  get 'users/:user_name', to: 'profiles#show', as: :profile
+  get 'users/:user_name/edit', to: 'profiles#edit', as: :edit_profile
+  patch 'users/:user_name', to: 'profiles#update', as: :update_profile
+
   resources :proposals do
     resources :submissions do
       resources :comments

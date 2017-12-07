@@ -1,6 +1,7 @@
 <%-# THIS IS THE INDIVIDUAL SUBMISSION# SHOW PARTIAL  -%>
 
 
+
 <%= image_tag @submission.avatar.url(:medium) %>
 
   <h2><%= @submission.title %></h2>
@@ -11,7 +12,7 @@
   <br>
 
   <% if @submission.user == current_user %>
-  <span><%= link_to "Edit Submission", edit_proposal_submission_path(@submission) %> -
+  <span><%= link_to "Edit Submission", edit_proposal_submission_path %> -
   <%= link_to 'Destroy', proposal_submission_path, :method => :delete %></span>
   <% end %>
   <hr>
@@ -26,11 +27,12 @@
 
 <div style='border: 2px solid red; width: 40%; height: 20%'>
   <h3>Comments:</h3>
+  <% if submission.comments %>
+    <% submission.comments.each do |comment| %>
+      <ul><%= comment.user_id %></ul>
+    <ul><%= comment.content %></ul>
 
-    <% @submission.comments.each do |c| %>
-      <ul><%= c.user_id %></ul>
-    <ul><%= c.content %></ul>
-    <% end %>
-
+<% end %>
+<% end %>
   </div>
   <hr>

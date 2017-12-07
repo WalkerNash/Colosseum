@@ -1,7 +1,7 @@
 
 <%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
 
-
+<%= link_to proposal.user.user_name, profile_path(proposal.user.user_name) %>
 <h2><%= proposal.name %></h2>
       <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
 <%= link_to image_tag(proposal.avatar.url(:medium)), proposal_path(proposal) %>
