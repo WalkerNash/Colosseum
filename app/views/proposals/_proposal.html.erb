@@ -1,10 +1,11 @@
 
 <%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
 
+
+<%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
 <%= link_to proposal.user.user_name, profile_path(proposal.user.user_name) %>
 
 <h2><%= proposal.name %></h2>
-
 
 <div class="prop-attr-box">
   <div class="cate"><%= proposal.category %></div>
@@ -19,7 +20,8 @@
   <p><%= proposal.fulldesc %></p>
 </div>
 
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
+
   <br>
 </div>
 
