@@ -21,6 +21,7 @@
 </div>
 
   <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
+
   <br>
 </div>
 
@@ -31,7 +32,7 @@
   <% if proposal.submissions.any? %>
       <% proposal.submissions.each do |submission| %>
 
-          <ul><%= submission.user.email %> -
+          <ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %> -
         <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
 
 
