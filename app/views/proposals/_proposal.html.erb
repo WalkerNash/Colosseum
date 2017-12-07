@@ -20,7 +20,7 @@
   <p><%= proposal.fulldesc %></p>
 </div>
 
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
 
   <br>
 </div>
