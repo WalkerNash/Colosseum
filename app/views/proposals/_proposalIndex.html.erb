@@ -8,7 +8,7 @@
 
 
   <p><%= proposal.short_desc %></p>
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.email %></small>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
   <br>
 </div>
 <h3>CURRENT SUBMISSIONS</h3>
