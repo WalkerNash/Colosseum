@@ -9,3 +9,25 @@
   <small>Submitted <%= time_ago_in_words(submission.created_at) %> ago by <%=  submission.user.email %></small>
 
   <br>
+
+  <% if @submission.user == current_user %>
+  <span><%= link_to "Edit Submission", edit_proposal_submission_path(@submission) %> -
+  <%= link_to 'Destroy', proposal_submission_path, :method => :delete %></span>
+  <% end %>
+  <hr>
+
+<div style='border: 2px solid red; width: 40%; height: 100px; margin: 0 auto'>
+
+    <% @submission.comments.each do |c| %>
+      <%= c.user_id %>
+      <ul><%= c.content %></ul>
+    <% end %>
+
+  </div>
+  <hr>
+
+  <%= form_for([@proposal, @submission,  @submission.comments.new]) do |f| %>
+      <%= f.text_field :content, placeholder: 'Add a comment...' %>
+      <%= f.submit %>
+
+  <% end %>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :proposals
   has_many :submissions
+  has_many :comments
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

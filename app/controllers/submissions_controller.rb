@@ -1,5 +1,5 @@
 class SubmissionsController < ApplicationController
-
+before_action :set_proposal
 
 
 
@@ -12,9 +12,9 @@ class SubmissionsController < ApplicationController
 
 
   def show
-
     @submission = Submission.find(params[:id])
   end
+
   def new
     @submission = Submission.new
   end
@@ -60,6 +60,8 @@ def submission_params
 end
 
 def set_proposal
-  @proposal = Proposal.find(params[:id])
+  @proposal = Proposal.find(params[:proposal_id])
 end
+
+
 end
