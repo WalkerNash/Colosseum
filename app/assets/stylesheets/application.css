@@ -48,6 +48,7 @@ a:link, a:visited{
   text-align: center;
   width: 100%;
   display: block;
+}
 
 .grid-item-2{
   grid-column: 1 / 2;
