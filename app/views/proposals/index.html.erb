@@ -1,9 +1,7 @@
-<div class="spacer"></div>
-<h1 class = "normal">PROPOSALS</h1>
-<div class="fullWidth">
-<% @proposals.each do |proposal| %>
-  <div class="fullWidth">
+<div class="grid-item-2">
+  <div class="spacer"></div>
+  <h1>PROPOSALS INDEX</h1>
+  <% @proposals.each do |proposal| %>
     <%= render 'proposalIndex', proposal: proposal %>
-  </div>
-<% end %>
+  <% end %>
 </div>

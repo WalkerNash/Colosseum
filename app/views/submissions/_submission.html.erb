@@ -18,7 +18,7 @@
   <hr>
 
   <%= form_for([@proposal, @submission,  @submission.comments.new]) do |f| %>
-      <%= f.text_field :content, placeholder: 'Add a comment...' %>
+      <%= f.text_field :body, placeholder: 'Add a comment...' %>
       <%= f.submit %>
 
   <% end %>
@@ -30,7 +30,7 @@
   <% if submission.comments %>
     <% submission.comments.each do |comment| %>
       <ul><%= link_to comment.user_id, profile_path(submission.user.user_name) %></ul>
-    <ul><%= comment.content %></ul>
+    <ul><%= comment.body %></ul>
 
 <% end %>
 <% end %>
