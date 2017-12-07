@@ -1,11 +1,11 @@
 <nav class="navbar">
-  <span><%= link_to "Home", proposals_path %></span>
+  <span class = "float_l"><%= link_to "Home", proposals_path %></span>
   <% if user_signed_in? %></span>
-    <span><%= link_to "New Proposal", new_proposal_path %></span>
-    <span><%= link_to "Profile", profile_path(current_user.user_name) %></span>
-    <span><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
+    <span class="float_r"><%= link_to "New Proposal", new_proposal_path %></span>
+    <span class="float_r"><%= link_to "Profile", profile_path(current_user.user_name) %></span>
+    <span class="float_r"><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
   <% else %>
-    <span><%= link_to "Login", new_user_session_path %></span>
-    <span><%= link_to "Register", new_user_registration_path %></span>
+    <span class="float_r"><%= link_to "Login", new_user_session_path %></span>
+    <span class="float_r"><%= link_to "Register", new_user_registration_path %></span>
   <% end %>
 </nav>
