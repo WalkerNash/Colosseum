@@ -16,18 +16,21 @@
   <% end %>
   <hr>
 
-<div style='border: 2px solid red; width: 40%; height: 100px; margin: 0 auto'>
-
-    <% @submission.comments.each do |c| %>
-      <%= c.user_id %>
-      <ul><%= c.content %></ul>
-    <% end %>
-
-  </div>
-  <hr>
-
   <%= form_for([@proposal, @submission,  @submission.comments.new]) do |f| %>
       <%= f.text_field :content, placeholder: 'Add a comment...' %>
       <%= f.submit %>
 
   <% end %>
+
+  <br>
+
+<div style='border: 2px solid red; width: 40%; height: 20%'>
+  <h3>Comments:</h3>
+
+    <% @submission.comments.each do |c| %>
+      <ul><%= c.user_id %></ul>
+    <ul><%= c.content %></ul>
+    <% end %>
+
+  </div>
+  <hr>

@@ -1,7 +1,8 @@
 
   <%= render 'proposal', proposal: @proposal %>
-  <li><%= link_to "Return to Proposal Index", proposals_path %></li>
+
+  <%= link_to "Return to Proposal Index", proposals_path %> -
   <% if @proposal.user.id == current_user.id %>
-  <li><%= link_to "Edit Proposal", edit_proposal_path(@proposal) %></li>
-  <li><%= link_to 'Destroy', @proposal, :method => :delete %></li>
+  <%= link_to "Edit Proposal", edit_proposal_path(@proposal) %> -
+  <%= link_to 'Destroy', @proposal, :method => :delete %> 
 <% end %>
