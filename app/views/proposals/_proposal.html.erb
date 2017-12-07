@@ -8,14 +8,14 @@
 
 <h4>Short Description:
   <%= proposal.short_desc %></h4>
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.email %></small>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
   <br>
 </div>
 <h3>CURRENT SUBMISSIONS</h3>
   <% if proposal.submissions.any? %>
       <% proposal.submissions.each do |submission| %>
 
-          <ul><%= submission.user.email %> -
+          <ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %> -
         <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
 
 
