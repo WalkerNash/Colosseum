@@ -1,15 +1,9 @@
 
-<%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
-
-
-<h2><%= proposal.name %></h2>
-<%= link_to "View Proposal", edit_proposal_path(proposal.id) %> -
-
-      <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
-<%= link_to image_tag(proposal.user.avatar.url(:thumb)), proposal_path(proposal) %>
-
-
-  <p><%= proposal.short_desc %></p>
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
-  <br>
+<div class="box">
+  <h2 class = "normal"><%= proposal.name %></h2>
+        <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
+  <%= link_to "View Proposal", edit_proposal_path(proposal.id) %> -
+  <%= link_to image_tag(proposal.user.avatar.url(:thumb)), proposal_path(proposal) %>
+    <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
+    <p ><%= proposal.short_desc %></p>
 </div>

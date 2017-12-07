@@ -1,11 +1,13 @@
-<% if @user == current_user %>
+<div class="grid-item-4">
+  <% if @user == current_user %>
   <div style="float:right"><%= link_to 'Edit Profile', edit_profile_path(@user.user_name) %>
   <%= link_to "Account Settings", edit_user_registration_path %></div>
   <% end %>
+</div>
 
-
-
-<h3><%= link_to @user.user_name %></h3>
-<%= profile_avatar_select(@user) %>
-<br>
-<%= @user.bio %>
+<div class="grid-item-2">
+  <h3><%= link_to @user.user_name %></h3>
+  <%= profile_avatar_select(@user) %>
+  <br>
+  <%= @user.bio %>
+<div>
