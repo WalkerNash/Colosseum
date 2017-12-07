@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+  
   before_action :authenticate_user!
 
 
@@ -56,7 +56,7 @@ def set_proposal
 end
 
 def authorized_user
-  @proposal = current_uer.proposals.find_by(id: params[:id])
+  @proposal = current_user.proposals.find_by(id: params[:id])
   redirect_to proposals_path
 end
 

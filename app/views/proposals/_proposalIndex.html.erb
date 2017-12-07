@@ -1,0 +1,41 @@
+
+<%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
+
+
+<h2><%= proposal.name %></h2>
+      <%-# USER AVATAR IMAGE THAT IS ALSO A LINK -%>
+<%= link_to image_tag(proposal.user.avatar.url(:thumb)), proposal_path(proposal) %>
+
+
+  <p><%= proposal.short_desc %></p>
+  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.email %></small>
+  <br>
+</div>
+<h3>CURRENT SUBMISSIONS</h3>
+  <% if proposal.submissions.any? %>
+      <% proposal.submissions.each do |submission| %>
+
+          <ul><%= submission.user.email %> -
+        <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
+
+
+    <% if submission.user == current_user %>
+
+        <span><%= link_to proposal_submission_path(proposal, submission), method: :delete, data: { confirm: "Are you sure?" } do %></span>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+<h3>Add A SUBMISSION!</h3>
+
+        <%= form_for [proposal, proposal.submissions.new] do |f| %>
+
+        <ul><%= f.file_field :avatar %>
+          <%= f.text_field :title, placeholder: 'Submission Title' %>
+         <%= f.text_field :description,
+        placeholder:  'Add the description...' %>
+         <%=f.submit 'Submission'%></ul>
+
+
+        <% end %>
