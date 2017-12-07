@@ -1,7 +1,2 @@
-
+<h2><%= @submission.user.user_name %>'s submission</h2>
   <%= render 'submission', submission: @submission %>
-
-  <% if @submission.user == current_user %>
-  <span><%= link_to "Edit Submission", edit_proposal_submission_path(@submission) %> - 
-  <%= link_to 'Destroy', proposal_submission_path, :method => :delete %></span>
-<% end %>

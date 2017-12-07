@@ -1,20 +1,17 @@
 class SubmissionsController < ApplicationController
-
-
+before_action :authenticate_user!
+before_action :set_proposal
 
 
   def index
     @proposal = Proposal.find(params[:proposal_id])
     @submissions = Submission.all
-
   end
-
-
 
   def show
-
     @submission = Submission.find(params[:id])
   end
+
   def new
     @submission = Submission.new
   end
@@ -32,7 +29,7 @@ class SubmissionsController < ApplicationController
   end
 
   def edit
-      @proposal = Proposal.find(params[:proposal_id])
+    @proposal = Proposal.find(params[:proposal_id])
     @submission = Submission.find(params[:id])
   end
 
@@ -60,6 +57,8 @@ def submission_params
 end
 
 def set_proposal
-  @proposal = Proposal.find(params[:id])
+  @proposal = Proposal.find(params[:proposal_id])
 end
+
+
 end
