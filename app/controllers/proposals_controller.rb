@@ -1,11 +1,11 @@
 class ProposalsController < ApplicationController
-  
+
   before_action :authenticate_user!
+  before_action :set_proposal
 
 
   def index
     @proposals = Proposal.all
-
   end
 
 # proposal is now built from the user instead of the proposal
@@ -15,7 +15,6 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = current_user.proposals.new(proposal_params)
-
     if @proposal.save
       redirect_to @proposal
     else
@@ -34,7 +33,6 @@ class ProposalsController < ApplicationController
   end
 
   def update
-
     @proposal.update(proposal_params)
     redirect_to(proposal_path(@proposal))
   end
@@ -48,7 +46,7 @@ class ProposalsController < ApplicationController
 private
 
 def proposal_params
-  params.require(:proposal).permit(:avatar, :name, :short_desc)
+  params.require(:proposal).permit(:avatar, :name, :short_desc, :fulldesc, :category, :location, :timelimit)
 end
 
 def set_proposal
