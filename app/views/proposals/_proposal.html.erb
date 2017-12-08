@@ -3,56 +3,59 @@
 
 
 <%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
-<%= link_to image_tag(proposal.user.avatar.url(:thumb)), profile_path(proposal.user.user_name) %>
+  <%= link_to image_tag(proposal.user.avatar.url(:thumb)), profile_path(proposal.user.user_name) %>
 
 
-<h2><%= proposal.name %></h2>
+  <h2><%= proposal.name %></h2>
 
-<div class="prop-attr-box">
-  <div class="cate"><%= proposal.category %></div>
-  <div class="loc"><%= proposal.location %></div>
-</div>
+  <div class="prop-attr-box">
+    <div class="cate"><%= proposal.category %></div>
+    <div class="loc"><%= proposal.location %></div>
+  </div>
 
-<div class="time-left-box">
-  <%= proposal.timelimit %>
-</div>
+  <div class="time-left-box">
+    <%= proposal.timelimit %>
+  </div>
 
-<div class="prop-fdesc-box">
-  <p><%= proposal.fulldesc %></p>
-</div>
+  <div class="prop-fdesc-box">
+    <p><%= proposal.fulldesc %></p>
+  </div>
 
-  <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
+    <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
 
-  <br>
-</div>
+    <br>
+  </div>
+  <div class="container">
 
-<p>Project Resources:</p>
-  <%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
+  <p>Project Resources:</p>
+    <%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
 
-<h3>CURRENT SUBMISSIONS</h3>
-  <% if proposal.submissions.any? %>
-      <% proposal.submissions.each do |submission| %>
+  <h3>CURRENT SUBMISSIONS</h3>
+    <% if proposal.submissions.any? %>
+        <% proposal.submissions.each do |submission| %>
 
-          <ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %> -
-        <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
+            <ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %> -
+          <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
 
 
-    <% if submission.user == current_user %>
+      <% if submission.user == current_user %>
 
-        <span><%= link_to proposal_submission_path(proposal, submission), method: :delete, data: { confirm: "Are you sure?" } do %></span>
+          <span><%= link_to proposal_submission_path(proposal, submission), method: :delete, data: { confirm: "Are you sure?" } do %></span>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
 
-<div class="submission-add-box">
-  <h3>Add A Submission?</h3>
-  <%= form_for [proposal, proposal.submissions.new] do |f| %>
-  <ul>
-    <%= f.file_field :avatar %>
-    <%= f.text_field :title, placeholder: 'Submission Title' %>
-    <%= f.text_field :description, placeholder:  'Add the description...' %>
-    <%=f.submit 'Submission'%>
-  </ul>
-  <% end %>
+  <div class="submission-add-box">
+    <h3>Add A Submission?</h3>
+    <%= form_for [proposal, proposal.submissions.new] do |f| %>
+    <ul>
+      <%= f.file_field :avatar %>
+      <%= f.text_field :title, placeholder: 'Submission Title' %>
+      <%= f.text_field :description, placeholder:  'Add the description...' %>
+      <%=f.submit 'Submission'%>
+    </ul>
+    <% end %>
+  </div>
+
 </div>
