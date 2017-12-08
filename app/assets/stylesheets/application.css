@@ -1,8 +1,9 @@
 *{
   color: #434B4D;
-} 
+  font-family: 'Press Start 2P';
+}
+
 body {
-  font-family: sans-serif;
   background-image: url("https://static.pexels.com/photos/10922/pexels-photo-10922.jpeg");
   background-size: cover;
   background-position: center;
