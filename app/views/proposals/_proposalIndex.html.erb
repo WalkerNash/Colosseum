@@ -6,8 +6,12 @@
   <%= link_to image_tag(proposal.user.avatar.url(:thumb)), proposal_path(proposal.id) %>
     <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
     <p ><%= proposal.short_desc %></p>
-    <p >Time Remaining: <%=  ((proposal.created_at + proposal.timelimit.days - Time.now)/86400).round %> Days</p>
 
+    <% if (proposal.created_at + proposal.timelimit.days - Time.now) > 0 %>
+      <p >Time Remaining: <%=  ((proposal.created_at + proposal.timelimit.days - Time.now)/86400).round %> Days</p>
+    <% else %>
+      <p> This event has ended, the winner will be chosen shortly </p>
+    <% end %>
 
     <br>
     <div class = "textBackground"><%= link_to "View Proposal", proposal_path(proposal.id) %></div>
