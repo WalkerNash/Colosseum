@@ -48,7 +48,12 @@ a:link, a:visited{
     text-decoration: none;
     color: white;
 }
-
+.textBackground{
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
 
 .normal{
   color: gray;
