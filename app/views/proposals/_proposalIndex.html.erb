@@ -6,6 +6,9 @@
   <%= link_to image_tag(proposal.avatar.url(:thumb)), proposal_path(proposal) %>
     <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
     <p ><%= proposal.short_desc %></p>
+    <p >Time Remaining: <%=  ((proposal.created_at + proposal.timelimit.days - Time.now)/86400).round %> Days</p>
+
+
     <br>
     <div class = "textBackground"><%= link_to "View Proposal", proposal_path(proposal.id) %></div>
     <br>
