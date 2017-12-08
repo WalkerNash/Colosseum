@@ -1,10 +1,18 @@
+body{
+  font-family: sans-serif;
+  color: #434b4d;
+  background-image: url("https://static.pexels.com/photos/10922/pexels-photo-10922.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 .container{
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 55px 1fr 1fr;
-  background-color: hsl(243,25%,81%);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar{
@@ -13,7 +21,7 @@
   display: inline;
   line-height: 55px;
   text-align: center;
-  background-color: hsl(34,92%,50%);
+  background-color: #BC4245;
 }
 .spacer{
   width: 100%;
@@ -21,8 +29,7 @@
   display:block;
 }
 .navbar > span{
-  font-family: serif;
-  font-size: 25px;
+  font-size: 22px;
   padding-right: 40px;
 }
 .fullWidth{
@@ -39,7 +46,7 @@
 
 a:link, a:visited{
     text-decoration: none;
-    color: gray;
+    color: white;
 }
 
 
@@ -75,6 +82,20 @@ a:link, a:visited{
   text-align: center;
 }
 
+<<<<<<< HEAD
 .longdesc {
   resize: none;
+=======
+.float_l{
+  float: left;
+  padding-left: 25px;
+}
+
+.float_r{
+  float: right;
+}
+
+.top{
+  vertical-align: text-top;
+>>>>>>> c3bb41497ea3cb1c4b76f3aee3fba7970505199d
 }
