@@ -45,6 +45,7 @@
             <% end %>
           <% end %>
         <% end %>
+<% if (proposal.created_at + proposal.timelimit.days - Time.now) < 0 %>
 
   <div class="submission-add-box">
     <h3>Add A Submission?</h3>
@@ -57,5 +58,5 @@
     </ul>
     <% end %>
   </div>
-
+  <% end %>
 </div>
