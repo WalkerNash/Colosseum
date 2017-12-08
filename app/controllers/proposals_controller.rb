@@ -1,8 +1,6 @@
 class ProposalsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_proposal
-
 
   def index
     @proposals = Proposal.all
@@ -33,6 +31,7 @@ class ProposalsController < ApplicationController
   end
 
   def update
+    @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
     redirect_to(proposal_path(@proposal))
   end
