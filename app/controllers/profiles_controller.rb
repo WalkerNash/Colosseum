@@ -26,7 +26,7 @@ before_action :owned_profile, only: [:edit, :update]
   private
 
   def profile_params
-    params.require(:user).permit(:avatar, :bio)
+    params.require(:user).permit(:avatar, :bio, :access_level)
   end
 
   def set_user

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+
+  enum access_level: [:contractor, :company]
+
+
   has_many :proposals, dependent: :destroy
   has_many :submissions, dependent: :destroy
   has_many :comments, dependent: :destroy
