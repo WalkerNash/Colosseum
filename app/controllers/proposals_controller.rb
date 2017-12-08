@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-  
+
   before_action :authenticate_user!
 
 
@@ -34,7 +34,7 @@ class ProposalsController < ApplicationController
   end
 
   def update
-
+    @proposal = Proposal.find(params[:id])
     @proposal.update(proposal_params)
     redirect_to(proposal_path(@proposal))
   end
@@ -48,16 +48,12 @@ class ProposalsController < ApplicationController
 private
 
 def proposal_params
-  params.require(:proposal).permit(:avatar, :name, :short_desc)
+  params.require(:proposal).permit(:avatar, :name, :short_desc, :long_des)
 end
 
 def set_proposal
   @proposal = Proposal.find(params[:id])
 end
 
-def authorized_user
-  @proposal = current_user.proposals.find_by(id: params[:id])
-  redirect_to proposals_path
-end
 
 end

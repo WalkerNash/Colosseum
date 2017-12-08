@@ -7,6 +7,8 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pundit'
+
 gem 'acts_as_votable'
 
 gem 'devise'
