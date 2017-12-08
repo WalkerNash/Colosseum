@@ -82,20 +82,8 @@ a:link, a:visited{
   text-align: center;
 }
 
-<<<<<<< HEAD
+
 .longdesc {
   resize: none;
-=======
-.float_l{
-  float: left;
-  padding-left: 25px;
-}
 
-.float_r{
-  float: right;
-}
-
-.top{
-  vertical-align: text-top;
->>>>>>> c3bb41497ea3cb1c4b76f3aee3fba7970505199d
 }
