@@ -55,7 +55,15 @@ a:link, a:visited {
   text-decoration: none;
 }
 
-.normal {
+.textBackground{
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.normal{
+  color: gray;
   text-align: center;
   width: 100%;
   display: block;
@@ -85,6 +93,7 @@ a:link, a:visited {
   text-align: center;
 }
 
+
 .float_l {
   float: left;
   padding-left: 25px;
@@ -96,4 +105,10 @@ a:link, a:visited {
 
 .top {
   vertical-align: text-top;
+
+
+.longdesc {
+  resize: none;
+
+
 }

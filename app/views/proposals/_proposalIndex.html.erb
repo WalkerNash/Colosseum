@@ -7,6 +7,6 @@
     <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  proposal.user.user_name %></small>
     <p ><%= proposal.short_desc %></p>
     <br>
-    <%= link_to "View Proposal", proposal_path(proposal.id) %> -
+    <div class = "textBackground"><%= link_to "View Proposal", proposal_path(proposal.id) %></div>
     <br>
 </div>

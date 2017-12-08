@@ -27,20 +27,30 @@
 
 <div class="form-field"><br>
   <p>Give your project a short description to bring in traffic!</p>
-  <%= form.text_field :short_desc %>
+  <%= form.text_field 'short_desc', :maxlength => 40, :size => 40 %>
+
 </div>
 
 <div class="form-field"><br>
   <p>You've got their attention, now give 'em the details with a full run-down of exactly what you want. Be specific, and add links to outside resources! </p>
-  <%= form.text_field :longdesc %>
-</div>
 
+
+     <%= form.text_area 'longdesc', :size => '60x10', :class => 'longdesc' %>
+</div>
+<br>
 <div class="form-field">
-  <p>What aspect of your business do you need help with? If a category you'd like isn't displayed, select Other, or contact us directly.</p><br>
+  <p>What aspect of your business do you need help with? If a category you'd like isn't displayed, select Other, or contact us directly.</p>
   <%= form.collection_select :category, Proposal::CATEGORIES, :to_s, :to_s,
        :include_blank => true %>
 </div>
-
+<br>
+<div class="form-field">
+  <p>Is your project based out of a specific location? Feel free to leave this blank if not.</p>
+  <%= form.collection_select :category, Proposal::LOCATIONS, :to_s, :to_s,
+       :include_blank => true %>
+</div>
+<br>
+<br>
 <div class="form-field">
   <%= form.submit %>
 </div>

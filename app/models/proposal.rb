@@ -7,4 +7,5 @@ class Proposal < ApplicationRecord
 validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   CATEGORIES = ['Web UX Design', 'Mobile Development (iOS)', 'Mobile Development (Android)', 'Mobile Development (Other)', 'Software Development', 'Web Development (Front-end)', 'Web Development (Server-side)', 'Web Development (Full-stack)', 'Other']
+  LOCATIONS = ['Philadelphia', 'New York', 'Washington D.C', 'Boston', 'Chicago', 'Austin', 'Dallas', 'San Francisco', 'Los Angeles', 'San Diego', 'Seattle', 'Portland', 'Denver'] 
 end
