@@ -59,7 +59,15 @@ a {
   color: #434b4d;
 }
 
-.normal {
+.textBackground{
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.normal{
+  color: gray;
   text-align: center;
   width: 100%;
   display: block;
@@ -89,6 +97,7 @@ a {
   text-align: center;
 }
 
+
 .float_l {
   float: left;
   padding-left: 25px;
@@ -100,6 +109,12 @@ a {
 
 .top {
   vertical-align: text-top;
+
+
+.longdesc {
+  resize: none;
+
+
 }
 
 .pad_l{
