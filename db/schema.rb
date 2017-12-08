@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20171208204317) do
     t.string "name"
     t.string "bio"
     t.string "user_name"
-
     t.integer "access_level"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

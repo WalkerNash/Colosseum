@@ -45,7 +45,7 @@
             <% end %>
           <% end %>
         <% end %>
-<% if (proposal.created_at + proposal.timelimit.days - Time.now) > 0 %>
+<% if ((proposal.created_at + proposal.timelimit.days) - Time.now) > 0 && current_user.access_level == "contractor"%>
 
   <div class="submission-add-box">
     <h3>Add A Submission?</h3>
@@ -56,7 +56,8 @@
       <%= f.text_field :description, placeholder:  'Add the description...' %>
       <%=f.submit 'Submission'%>
     </ul>
-    <% else %>
+    <% end %>
+    <% if ((proposal.created_at + proposal.timelimit.days) - Time.now) < 1 && current_user.access_level = "contractor"%>
     <div class="submission-add-box">
 
       <button class = "patty"> Choose Winner </button>
