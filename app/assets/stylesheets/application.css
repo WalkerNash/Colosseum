@@ -1,6 +1,6 @@
 *{
   color: #434B4D;
-  font-family: 'Press Start 2P';
+  font-family: 'Spectral SC', sans-serif;
 }
 
 body {
@@ -35,7 +35,7 @@ body {
 }
 
 .navbar>span {
-  font-size: 22px;
+  font-size: 23px;
   padding-right: 40px;
 }
 
