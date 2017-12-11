@@ -113,12 +113,10 @@ a {
 
 .top {
   vertical-align: text-top;
+}
 
-
-.longdesc {
+.longdesc{
   resize: none;
-
-
 }
 
 .pad_l{
