@@ -57,7 +57,7 @@
       <%=f.submit 'Submission'%>
     </ul>
     <% end %>
-    <% if ((proposal.created_at + proposal.timelimit.days) - Time.now) < 1 && current_user.access_level = "contractor"%>
+    <% if ((proposal.created_at + proposal.timelimit.days) - Time.now) < 1 && current_user.access_level = "contractor" %>
     <div class="submission-add-box">
 
       <button class = "patty"> Choose Winner </button>
