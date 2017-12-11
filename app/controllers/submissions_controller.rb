@@ -10,6 +10,7 @@ before_action :set_proposal
 
   def show
     @submission = Submission.find(params[:id])
+  
   end
 
   def new
