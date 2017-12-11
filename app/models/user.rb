@@ -16,5 +16,8 @@ class User < ApplicationRecord
 
   #Paperclip shit
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/default-avatar.jpg"
+<<<<<<< HEAD
   
+=======
+>>>>>>> 7854166c93d3d866f569bd37830040b2eac94456
 end

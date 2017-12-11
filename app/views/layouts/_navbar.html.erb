@@ -1,9 +1,15 @@
 <nav class="navbar">
   <span class = "float_l"><%= link_to "Home", proposals_path %></span>
   <% if user_signed_in? %></span>
+<<<<<<< HEAD
     <% if user.access_level = 1 %>
     <span class="float_r"><%= link_to "New Proposal", new_proposal_path %></span>
     <% end %>
+=======
+  <% if current_user.access_level == "company"> %>
+    <span class="float_r"><%= link_to "New Proposal", new_proposal_path %></span>
+  <% end %>
+>>>>>>> 7854166c93d3d866f569bd37830040b2eac94456
     <span class="float_r"><%= link_to "Profile", profile_path(current_user.user_name) %></span>
     <span class="float_r"><%= link_to "Logout", destroy_user_session_path, method: :delete %></span>
   <% else %>
