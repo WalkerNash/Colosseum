@@ -1,68 +1,75 @@
-
 <%-# THIS IS THE INDIVIDUAL PROPOSAL# SHOW PARTIAL  -%>
 
-
 <%-# USER AVATAR IMAGE THAT IS ALSO A LINK GOES BELOW-%>
-  <%= link_to image_tag(proposal.user.avatar.url(:thumb)), profile_path(proposal.user.user_name) %>
+<%= link_to image_tag(proposal.user.avatar.url(:thumb)), profile_path(proposal.user.user_name) %>
 
-
+<div class="grid-item-2">
   <h2><%= proposal.name %></h2>
 
   <div class="prop-attr-box">
-    <div class="cate"><%= proposal.category %></div>
-    <div class="loc"><%= proposal.location %></div>
+    <div class="cate">CATEGORY:<br><%= proposal.category %></div>
+    <div class="loc">LOCATION:<br><%= proposal.location %></div>
   </div>
 
   <div class="time-left-box">
-    <%= proposal.timelimit %>
+    DURATION:<br><%= proposal.timelimit %>
+    DAYS
   </div>
+</div>
 
-  <div class="prop-fdesc-box">
-    <p><%= proposal.fulldesc %></p>
-  </div>
+<div class="prop-fdesc-box">
+  <p><%= proposal.fulldesc %></p>
+</div>
 
-    <small>Proposed <%= time_ago_in_words(proposal.created_at) %> ago by <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
+<small>Proposed
+  <%= time_ago_in_words(proposal.created_at) %>
+  ago by
+  <%=  link_to proposal.user.user_name, profile_path(proposal.user.user_name) %></small>
 
-    <br>
-  </div>
-  <div class="container">
-
-  <p>Project Resources:</p>
-    <%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
-
-  <h3>CURRENT SUBMISSIONS</h3>
-    <% if proposal.submissions.any? %>
-        <% proposal.submissions.each do |submission| %>
-
-            <ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %> -
-          <a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>' > <%=submission.title %></a></ul>
+<br>
+</div>
 
 
-      <% if submission.user == current_user %>
+<div class="grid-item-6">
+<%= link_to image_tag(proposal.avatar.url(:large)), proposal_path(proposal) %>
+</div>
 
-          <span><%= link_to proposal_submission_path(proposal, submission), method: :delete, data: { confirm: "Are you sure?" } do %></span>
-              <% end %>
-            <% end %>
-          <% end %>
-        <% end %>
+<h3>CURRENT SUBMISSIONS</h3>
+<% if proposal.submissions.any? %>
+<% proposal.submissions.each do |submission| %>
+
+<ul><%= link_to submission.user.user_name, profile_path(proposal.user.user_name) %>
+-
+<a href='/proposals/<%= proposal.id %>/submissions/<%=submission.id %>'>
+  <%=submission.title %></a>
+</ul>
+
+<% if submission.user == current_user %>
+
+<span><%= link_to proposal_submission_path(proposal, submission), method: :delete, data: { confirm: "Are you sure?" } do %></span>
+<% end %>
+<% end %>
+<% end %>
+<% end %>
 <% if ((proposal.created_at + proposal.timelimit.days) - Time.now) > 0 && current_user.access_level == "contractor"%>
 
-  <div class="submission-add-box">
-    <h3>Add A Submission?</h3>
-    <%= form_for [proposal, proposal.submissions.new] do |f| %>
-    <ul>
-      <%= f.file_field :avatar %>
-      <%= f.text_field :title, placeholder: 'Submission Title' %>
-      <%= f.text_field :description, placeholder:  'Add the description...' %>
-      <%=f.submit 'Submission'%>
-    </ul>
-    <% end %>
-    <% if ((proposal.created_at + proposal.timelimit.days) - Time.now) < 1 && current_user.access_level = "contractor" %>
-    <div class="submission-add-box">
+<div class="submission-add-box">
+<h3>Add A Submission?</h3>
+<%= form_for [proposal, proposal.submissions.new] do |f| %>
+<ul>
+  <%= f.file_field :avatar %>
+  <%= f.text_field :title, placeholder: 'Submission Title' %>
+  <%= f.text_field :description, placeholder:  'Add the description...' %>
+  <%=f.submit 'Submission'%>
+</ul>
+<% end %>
+<% if ((proposal.created_at + proposal.timelimit.days) - Time.now) < 1 && current_user.access_level = "contractor" %>
+<div class="submission-add-box">
 
-      <button class = "patty"> Choose Winner </button>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
+  <button class="patty">
+    Choose Winner
+  </button>
 </div>
+<% end %>
+</div>
+<% end %>
